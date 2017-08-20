@@ -9,9 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:profile, :articles, :comments, comments: :articles).find(params[:id])
-    @articles = @user.articles
-    @comments = @user.comments
+    @user = User.includes(:profile).find(params[:id])
   end
 
   def edit
