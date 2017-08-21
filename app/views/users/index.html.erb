@@ -1,3 +1,24 @@
-
 <%= link_to 'New Article', new_article_path %>
 
+<%= fields_for :profile do |p| %>
+		<h4>Kişisel Bilgiler</h4>
+			<div class="row">
+	<div class="large-6 columns">
+	<%= p.label :name %>
+	<%= p.text_field :name%>
+	</div>
+	<div class="large-12 columns">
+	<%= p.label :surname %>
+	<%= p.text_field :surname %>
+	</div>
+	<div class="large-12 columns">
+	<%= p.label :phone_number %>
+	<%= p.text_field :phone_number %>
+	</div>
+	<div class="large-12 columns">
+	<%= p.label :university %>
+	<%= p.text_field :university %>
+	<%= p.submit "Kaydet", class: 'medium button right' %>
+	</div>
+	</div>
+		<% end %>

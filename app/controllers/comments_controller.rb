@@ -12,6 +12,9 @@ class CommentsController < ApplicationController
     @comment.destroy
     redirect_to @article
   end
+  def show
+    get_comment
+  end
 
   private
   def comment_params

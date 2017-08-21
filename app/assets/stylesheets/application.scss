@@ -1,17 +1,59 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
- @import "bootstrap-sprockets";
-@import "bootstrap";
+
+ @import "bootstrap";
+ 
+
+ $black: #2E2F34;
+ $red: #BA3434;
+ $blue: #3148A0;
+ $white: #fafafa;
+
+h1,h2,h3,h4,h5,h6,a,p {
+    font-family: 'Raleway', sans-serif;
+}
+body {
+    padding-bottom: 60px;
+    overflow-x: hidden;
+    .notice {text-align: center; color: $blue;}
+    .alert {text-align: center; color: $red;}
+}
+.navbar-default {
+    background: $white;
+}
+.navbar-brand {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+    img {
+        margin:auto; 
+        height: 100%;
+        &.brand-logo {
+            display: block;
+            @media screen and (max-width: 900px) {
+                display: none;
+            }
+        }
+        &.brand-icon {
+            display: none;
+            @media screen and (max-width: 900px) {
+                display: block;
+            }
+        }
+    }
+}
+.navbar-toggle {
+    z-index:3;
+}
+.category {
+    overflow: hidden;
+    .desc {
+        text-align: center;
+        position: absolute;
+        bottom: 0; left: 0;
+        width: 100%;
+        h4 {color: $white;}
+    }
+}
