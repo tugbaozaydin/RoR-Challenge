@@ -1,4 +1,10 @@
 class CommentsController < ApplicationController
+  def index
+    @comments = Comment.includes(:article).all
+  end
+   def new
+    @comment = Comment.new
+  end
 
   def create
     @article = Article.find(params[:article_id])
@@ -19,5 +25,8 @@ class CommentsController < ApplicationController
   private
   def comment_params
     params.require(:comment).permit(:commenter, :body)
+  end
+  def get_comment
+    @comment = Comment.find(params[:id])
   end
 end
