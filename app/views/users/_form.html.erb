@@ -1,51 +1,15 @@
-<%= form_for @user do |form| %>
-<% if @user.errors.any? %>
-<div class="row panel callout radius">
-<p>Hatalarını düzeltip,dene</p>
-<ul class="square">
-<% @user.errors.full_messages.each do |message| %>
-	<li><%= message %></li>
-	<% end %>
-	</ul>
-	</div>
-	<% end %>
-	<div class="row">
-	<div class="large-12 columns">
-	<%= form.label :email %>
-	<%= form.text_field :email %>
-	</div>
-	<div class="large-12 columns">
-	<%= form.label :password %>
-	<%= form.text_field :password %>
-	</div>
-	<div class="large-12 columns">
-	<%= form.label :password_confirmation %>
-	<%= form.text_field :password_confirmation %>
-	</div>
-	<div class="large-12 columns">
-	<%= form.submit "Sign up", class: 'medium button right' %>
-		</div>
-		</div>
-		<% end %>
-		<%= fields_for :profile do |p| %>
-		<h4>Kişisel Bilgiler</h4>
-			<div class="row">
-	<div class="large-6 columns">
-	<%= p.label :name %>
-	<%= p.text_field :name %>
-	</div>
-	<div class="large-12 columns">
-	<%= p.label :surname %>
-	<%= p.text_field :surname %>
-	</div>
-	<div class="large-12 columns">
-	<%= p.label :phone_number %>
-	<%= p.text_field :phone_number %>
-	</div>
-	<div class="large-12 columns">
-	<%= p.label :university %>
-	<%= p.text_field :university %>
-	<%= p.submit "Kaydet", class: 'medium button right' %>
-	</div>
-	</div>
+<%= simple_form_for @user do |f| %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.button :submit %>
+<% end %>
+<%= form_for @user do |f| %>
+  <%= f.simple_fields_for :profile do |p| %>
+  	<%= p.input :name %>
+  	<%= p.input :surname %>
+  	<%= p.input :phone_number %>
+  	<%= p.input :university %>
+  	<%= p.button :submit %>
+  	<% end %>
 		<% end %>
