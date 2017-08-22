@@ -1,0 +1,20 @@
+%h1 Listing articles
+= link_to 'New article', new_article_path
+%table
+  %thead
+    %tr
+      %th Title
+      %th Text
+      %th Category
+      %th{:colspan => "2"}
+  %tbody
+    - @articles.each do |article|
+      %tr
+        %td= article.title
+        %td= article.text
+        %td= article.category_ids
+        %td= link_to 'Show And Add Comment', article_path(article)
+        %td= link_to 'Edit', edit_article_path(article)
+        %td= link_to 'Destroy', article_path(article), |
+            method: :delete,                          |
+            data: { confirm: 'Are you sure?' }        |
